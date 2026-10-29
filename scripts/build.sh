@@ -12,6 +12,7 @@ python3 scripts/instagram_feed.py
 cp scripts/instagram-carousel.css public/assets/instagram-carousel.css
 cp scripts/instagram-carousel.js public/assets/instagram-carousel.js
 cp scripts/seo-pages.css public/assets/seo-pages.css
+cp scripts/mobile-polish.css public/assets/mobile-polish.css
 python3 scripts/seo_build.py
 python3 -m pip install -q --disable-pip-version-check --target /tmp/twco-pillow Pillow==11.3.0
 PYTHONPATH=/tmp/twco-pillow python3 scripts/optimize_hero.py

@@ -145,6 +145,7 @@ def inner_head(title,desc,path,photo=None):
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/><link rel="manifest" href="/site.webmanifest"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="/assets/seo-pages.css"/>
+<link rel="stylesheet" href="/assets/mobile-polish.css" media="(max-width: 860px)"/>
 '''
 def foot():
  services=''.join(f'<a href="{BASE}/servicos/{d["slug"]}/">{escape(d["label"])}</a>' for d in SERVICES)
@@ -222,6 +223,7 @@ assert anchor in page
 section_end=page.rfind('</section>',0,page.index(anchor))
 seo_nav=f'<nav aria-label="Mais informações da TW&CO" class="home-discovery"><span>Conheça nossos serviços em Sorocaba:</span> '+''.join(f'<a href="{absolute("/servicos/"+s["slug"]+"/")}">{escape(s["label"])} ↗</a>' for s in SERVICES)+'</nav>'
 page=page[:section_end]+seo_nav+page[section_end:]
+page=page.replace('</head>','<link rel="stylesheet" href="/assets/mobile-polish.css" media="(max-width: 860px)"/></head>',1)
 home.write_text(page,encoding='utf-8')
 URLS.append({'path':'/','image':HERO,'modified':DATE})
 # Hub
