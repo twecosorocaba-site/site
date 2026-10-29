@@ -1,0 +1,35 @@
+{
+  "status": "verified_snapshot",
+  "source": "Google Maps",
+  "retrievedAt": "2026-10-29",
+  "placeName": "TW&CO - Serviços Mecânicos Premium",
+  "googleMapsUrl": "https://maps.app.goo.gl/KH8BSwpBCeTkNb8z7",
+  "rating": 5,
+  "reviewCount": 4,
+  "reviews": [
+    {
+      "author": "Wesley Luiz",
+      "rating": 5,
+      "text": "oficina muito bem organizada e equipe atenciosa !",
+      "date": null
+    },
+    {
+      "author": "Cecilia Oliveira",
+      "rating": 5,
+      "text": "Recomendo sem dúvidas, informações claras, ótimo atendimento e a entrega surpreende!",
+      "date": null
+    },
+    {
+      "author": "Tamara TWeCO",
+      "rating": 5,
+      "text": "",
+      "date": null
+    },
+    {
+      "author": "Gustavosena Sena",
+      "rating": 5,
+      "text": "",
+      "date": null
+    }
+  ]
+}
