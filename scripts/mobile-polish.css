@@ -1,0 +1,76 @@
+/* TW&CO Premium — mobile-only alignment refinement, no changes to desktop or approved photos. */
+@media (max-width: 860px) {
+  .hero-header-inner { gap: 10px; }
+  .hero-header-inner > .brand { flex: 0 1 auto; min-width: 0; }
+  .hero-header-inner > .brand img { max-width: 100%; height: auto; }
+  .hero-header-inner > .header-cta { margin-left: auto; flex: 0 0 auto; white-space: nowrap; }
+  .hero-header-inner > .menu-btn { flex: 0 0 36px; margin-left: 0; }
+  .hero-copy { width: 100%; text-align: center; }
+  .hero-copy-inner { width: calc(100% - 36px); max-width: min(740px, calc(100% - 36px)) !important; margin-inline: auto; min-width: 0; display: flex; flex-direction: column; align-items: center; }
+  .hero h1 { max-width: 740px; width: 100%; margin: 20px auto 22px; font-size: clamp(31px, 8.4vw, 46px); line-height: 1.12; text-align: center; letter-spacing: -.041em; overflow-wrap: normal; }
+  .hero h1 span, .hero .serif { white-space: normal; }
+  .hero-description { text-align: center; margin-inline: auto; max-width: 520px; }
+  .hero-actions { justify-content: center; align-items: center; margin-inline: auto; flex-wrap: wrap; }
+  .hero-detail { text-align: center; margin-inline: auto; }
+  .hero-mobile-photo img { transform: none; }
+  .section-top, .services .container > .eyebrow,
+  .attention-copy, .diagnostic-intro, .review-sidebar,
+  .ig-heading, .ig-heading-actions, .location .container,
+  .location-info, .location-copy { text-align: center; }
+  section h2 { text-align: center; margin-inline: auto; overflow-wrap: break-word; }
+  .section-top p, .attention-copy > p, .diagnostic-intro > p,
+  .review-sidebar > p, .ig-heading p, .location p { text-align: center; margin-inline: auto; }
+  .section-top, .diagnostic-intro, .review-sidebar, .ig-heading { width: 100%; max-width: 100%; min-width: 0; }
+  .section-top > *, .attention-copy > *, .diagnostic-intro > *, .review-sidebar > * { margin-left: auto; margin-right: auto; }
+  .service-card { text-align: center; }
+  .service-card p { text-align: center; }
+  .attention-copy { width: 100%; min-width: 0; }
+  .attention-panel { display: grid; grid-template-columns: minmax(0,1fr) !important; width: 100%; min-width: 0; }
+  .diagnostic .container { max-width: 100%; }
+  .reviews .review-sidebar { display: flex; flex-direction: column; align-items: center; }
+  .reviews .review-sidebar h2 { max-width: 600px; }
+  .ig-heading { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+  .ig-heading > div { width: 100%; max-width: 100%; }
+  .ig-heading-actions { display: flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .ig-heading-actions .ig-controls { justify-content: center; }
+  .ig-footnote { text-align: center; justify-content: center; flex-wrap: wrap; }
+  .location .container { min-width: 0; }
+  .location a, .attention a { max-width: 100%; }
+  footer { text-align: center; }
+  footer .container { justify-items: center; }
+  .home-discovery { justify-content: center; text-align: center; }
+}
+@media (max-width: 359px) {
+  .hero-header-inner { gap: 5px; }
+  .hero-header-inner > .brand { max-width: 85px; }
+  .hero-header-inner > .header-cta { font-size: 10px; padding-inline: 7px; }
+  .hero-header-inner > .menu-btn { flex-basis: 34px; }
+  .hero h1 { font-size: 31px; letter-spacing: -.04em; }
+  .hero-actions .btn { max-width: 100%; }
+  section h2 { font-size: clamp(27px, 8vw, 36px); }
+}
+
+/* Inner SEO/service pages — mobile layouts only. */
+@media (max-width: 860px) {
+  .inner-wrap, .inner-hero, .inner-section, .simple-hero { min-width: 0; }
+  .inner-hero { grid-template-columns: minmax(0, 1fr); }
+  .inner-hero > div, .simple-hero, .inner-hero figure,
+  .inner-section > h2, .inner-section > .section-label,
+  .inner-section > p, .inner-cta, .inner-service-info,
+  .contact-boxes article, .guide-block, .inner-footer { text-align: center; }
+  .inner-hero > div, .inner-hero figure { width: 100%; max-width: 100%; }
+  .inner-hero h1, .simple-hero h1 { max-width: 100%; margin-inline: auto; overflow-wrap: break-word; }
+  .inner-hero p, .simple-hero p, .inner-section > p,
+  .guide-block p { max-width: 100%; margin-inline: auto; }
+  .inner-hero figure img, .inner-service-card img { max-width: 100%; height: auto; }
+  .inner-hero a.primary-btn, .inner-cta a.primary-btn { margin-inline: auto; }
+  .inner-cta { align-items: center; justify-items: center; }
+  .inner-service-info { align-items: center; }
+  .contact-boxes article { min-width: 0; }
+  .contact-boxes article h2 { overflow-wrap: anywhere; }
+  .footer-grid > div { text-align: center; }
+  .footer-grid > div a { margin-inline: auto; }
+}
+@media (max-width: 359px) {
+  .inner-hero h1, .simple-hero h1 { font-size: clamp(29px, 9vw, 37px); }
+}
