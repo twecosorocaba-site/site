@@ -1,0 +1,10 @@
+{
+  "buildCommand": "mkdir -p public && unzip -oq TWCO_Premium_V17_Projeto_Vercel.zip -d public && rm -rf public/api",
+  "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/api/reviews",
+      "destination": "/assets/avaliacoes-verificadas.json"
+    }
+  ]
+}
