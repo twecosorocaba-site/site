@@ -1,0 +1,160 @@
+/* TW&CO — refinamento editorial V20.
+   Os efeitos luminosos ficam EXCLUSIVAMENTE em #atendimento e #explique-seu-problema. */
+.attention,
+.diagnostic {
+  position: relative;
+  isolation: isolate;
+}
+.attention { overflow: hidden; }
+.attention > .container,
+.diagnostic > .container { position: relative; z-index: 2; }
+
+/* Arcos verdes bem discretos, desfocados, criados por CSS; nenhuma fotografia foi alterada. */
+.attention::before,
+.attention::after,
+.diagnostic::after {
+  content: "";
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  opacity: .39;
+  filter: blur(10px);
+  box-sizing: border-box;
+  transform: rotate(-10deg);
+}
+.attention::before {
+  width: min(100vw, 1400px);
+  height: 410px;
+  left: -35%;
+  bottom: -264px;
+  border-top: 2px solid rgba(37, 255, 146, .36);
+  box-shadow: 0 -13px 30px -17px rgba(11, 255, 142, .18),
+              0 -25px 65px -40px rgba(24, 228, 141, .13);
+}
+.attention::after {
+  width: min(91vw, 1380px);
+  height: 340px;
+  right: -48%;
+  bottom: -232px;
+  border-top: 2px solid rgba(37, 255, 146, .31);
+  box-shadow: 0 -7px 25px -16px rgba(0, 255, 130, .16);
+  transform: rotate(11deg);
+}
+.diagnostic::after {
+  width: min(115vw, 1600px);
+  height: 440px;
+  left: -18%;
+  top: -305px;
+  border-bottom: 2px solid rgba(36, 245, 142, .36);
+  box-shadow: 0 16px 50px -22px rgba(10, 249, 135, .2);
+  transform: rotate(-8deg);
+  opacity: .34;
+  filter: blur(12px);
+}
+/* Fundo contínuo, sem borda abrupta entre atendimento e diagnóstico. */
+.attention {
+  background: linear-gradient(180deg, #031c14 0%, #041d14 72%, #051f16 100%) !important;
+}
+.diagnostic {
+  background: radial-gradient(ellipse 70% 90% at 26% 0%,
+                    rgba(3, 82, 46, .15), transparent 70%),
+              linear-gradient(180deg, #051f16 0%, #041810 100%) !important;
+}
+.diagnostic::before {
+  opacity: .52 !important;
+  background: radial-gradient(ellipse at 75% 26%,
+                    rgba(13, 223, 119, .055), transparent 60%) !important;
+}
+/* Vidro fumê esverdeado com brilho suave na borda. */
+.diagnostic-shell {
+  background: linear-gradient(140deg,
+              rgba(17, 81, 51, .23) 0%,
+              rgba(5, 39, 28, .48) 55%,
+              rgba(16, 84, 52, .19) 100%) !important;
+  border: 1px solid rgba(126, 242, 174, .26) !important;
+  box-shadow:
+     0 26px 100px rgba(0, 13, 9, .18),
+     inset 0 1px 0 rgba(255, 255, 255, .13),
+     inset 0 -1px 0 rgba(0, 237, 131, .065) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(1.28);
+  backdrop-filter: blur(25px) saturate(1.28);
+}
+.diagnostic-console {
+  background: linear-gradient(145deg,
+              rgba(8, 48, 32, .44), rgba(3, 29, 21, .61)) !important;
+  border: 1px solid rgba(197, 255, 220, .17) !important;
+  box-shadow: 0 18px 55px rgba(0, 21, 13, .15),
+              inset 0 1px 0 rgba(255, 255, 255, .045) !important;
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+.diag-form textarea {
+  background: rgba(16, 68, 45, .28) !important;
+  border: 1px solid rgba(169, 248, 196, .29) !important;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  transition: border-color .25s ease, background .25s ease,
+              box-shadow .25s ease;
+}
+.diag-form textarea:focus {
+  background: rgba(19, 71, 48, .38) !important;
+  border-color: rgba(53, 240, 142, .68) !important;
+  box-shadow: 0 0 0 3px rgba(12, 221, 124, .085) !important;
+}
+.diag-form button {
+  box-shadow: 0 3px 24px rgba(0, 224, 116, .14);
+}
+
+/* Recolhido de verdade: o conteúdo não é exibido antes do envio. */
+#diagnosticAnswer {
+  max-height: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0;
+  opacity: 0;
+  transform: translateY(-9px) scale(.992);
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    max-height .7s cubic-bezier(.2,.82,.2,1),
+    margin-top .6s ease,
+    opacity .42s ease,
+    transform .62s cubic-bezier(.2,.8,.2,1),
+    visibility 0s linear .7s;
+}
+#diagnosticAnswer.is-visible {
+  max-height: 720px !important;
+  margin-top: 18px !important;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    max-height .7s cubic-bezier(.2,.82,.2,1),
+    margin-top .6s ease,
+    opacity .42s ease .10s,
+    transform .62s cubic-bezier(.2,.8,.2,1),
+    visibility 0s linear;
+}
+#diagnosticAnswer .diag-response-body {
+  background: rgba(6, 42, 28, .38) !important;
+  border-color: rgba(114, 230, 158, .23) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+@media (max-width: 860px) {
+  .attention::before,.attention::after,.diagnostic::after {
+     opacity: .17;
+     filter: blur(12px);
+  }
+  .diagnostic-shell { -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+  .diag-form textarea { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #diagnosticAnswer, #diagnosticAnswer.is-visible {
+     transition: none !important;
+     transform: none !important;
+  }
+}
