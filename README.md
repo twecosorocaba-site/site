@@ -1,5 +1,7 @@
-# TW&CO Premium V17
+# TW&CO Premium — site de produção
 
-Fonte verificada: TWCO_Premium_V17_Projeto_Vercel.zip.
+O ZIP original contém as fotografias e a composição aprovadas. O build extrai o ZIP, aplica o refinamento em `patch-site.cjs.gz` e publica o conteúdo gerado em `public/`.
 
-A Vercel extrai automaticamente o ZIP para `public/` durante cada build. O arquivo ZIP contém `index.html`, CSS, JS, imagens, logo e avaliações verificadas. Atualize o ZIP para publicar uma nova versão.
+Ordem: Hero → Especialização para cada detalhe → Atendimento → Explique o seu problema → Avaliações Google → Contato.
+
+A orientação inicial é baseada em categorias, não é diagnóstico clínico/mecânico e encaminha a equipe via WhatsApp. Comentários do Google são cópia verificada em 29/10/2026; atualização automática requer autorização.
