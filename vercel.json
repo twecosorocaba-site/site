@@ -4,6 +4,10 @@
   "trailingSlash": true,
   "rewrites": [
     {
+      "source": "/api/reviews/",
+      "destination": "/assets/avaliacoes-verificadas.json"
+    },
+    {
       "source": "/api/reviews",
       "destination": "/assets/avaliacoes-verificadas.json"
     }
