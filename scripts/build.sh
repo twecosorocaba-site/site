@@ -8,4 +8,7 @@ python3 scripts/clean_hero.py public/assets/hero-referencia-exata.png public/ass
 python3 scripts/merge_hero.py public/assets/hero-referencia-exata.png public/assets/roof-original-pixels.png public/assets/hero-clean-v19.png public/assets/hero-seamless-v22.png
 TWCO_PUBLIC_DIR=public node scripts/polish.cjs
 cat scripts/roof-seam-fix.css >> public/assets/experience-polish.css
+python3 scripts/instagram_feed.py
+cp scripts/instagram-carousel.css public/assets/instagram-carousel.css
+cp scripts/instagram-carousel.js public/assets/instagram-carousel.js
 rm -rf public/api
