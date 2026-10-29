@@ -1,17 +1,41 @@
-/* TW&CO Premium — seamless roof above navigation.
-   The former 1px header separator crossed the building; remove it,
-   then extend the approved roof photo just beyond the header boundary. */
+/* V21 — Telhado alinhado à fachada em todas as larguras.
+   Antes: scale(1.24) ampliava só o recorte e criava uma ponta torta.
+   Agora: roof-front usa a MESMA projeção do hero-scene, pixel a pixel. */
+#inicio .hero-header-bg,
+#inicio .hero-header {
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
 @media (min-width: 861px) {
-  #inicio .hero-header-bg {
-    border-bottom: 0 !important;
-    box-shadow: none !important;
-  }
-  #inicio .hero-header {
-    border-bottom: 0 !important;
-    box-shadow: none !important;
-  }
   #inicio .roof-front {
-    transform: scale(1.24) !important;
-    transform-origin: 76% 5.7% !important;
+    transform: none !important;
+    rotate: none !important;
+    scale: none !important;
+    transform-origin: center center !important;
+    inset: 0 !important;
+    left: auto !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: auto !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: right bottom !important;
   }
+  #inicio .hero-scene {
+    transform: none !important;
+    inset: 0 !important;
+    left: auto !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: auto !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: right bottom !important;
+  }
+}
+/* No mobile há uma única fotografia, sem recorte sobreposto. */
+@media (max-width: 860px) {
+  #inicio .roof-front {display:none!important;transform:none!important;}
 }
