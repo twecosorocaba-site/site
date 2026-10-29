@@ -27,3 +27,22 @@ for ext in ('*.html','*.xml','*.txt','*.md','*.json'):
 print('HERO OPTIMIZED: original',source.stat().st_size,'webp',out.stat().st_size,
       'saved',round(100*(1-out.stat().st_size/source.stat().st_size),1),'%',
       'mean absolute RGB error',*[round(v,3) for v in diff])
+
+
+# Mobile hero: downsize original WebP from project ZIP for 2x mobile screens.
+# Build always unzips original, so this is a single-pass conversion.
+_mobile=root/'assets/hero-mobile-realista.webp'
+if _mobile.exists():
+    _initial=_mobile.stat().st_size
+    _orig=Image.open(_mobile).convert('RGB')
+    _width=min(_orig.width,900)
+    _resized=_orig.resize((_width,round(_orig.height*_width/_orig.width)),Image.Resampling.LANCZOS)
+    _out=root/'assets/hero-mobile-realista-optimized.webp'
+    _resized.save(_out,'WEBP',quality=90,method=6)
+    _check=Image.open(_out).convert('RGB')
+    assert _check.size==_resized.size
+    _err=max(ImageStat.Stat(ImageChops.difference(_resized,_check)).mean)
+    assert _err<3,('Mobile visual fidelity',_err)
+    assert _out.stat().st_size<_initial*0.80,'Image not sufficiently reduced'
+    _out.replace(_mobile)
+    print('MOBILE HERO OPTIMIZED',_initial,'->',_mobile.stat().st_size)
