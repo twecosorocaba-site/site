@@ -199,7 +199,7 @@ page=page.replace('</head>',f'''<link rel="canonical" href="{BASE}/"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="preload" as="image" fetchpriority="high" href="/assets/hero-seamless-v22.png" media="(min-width: 861px)"/>
 {json_script(BUS_SCHEMA)}
-<link rel="stylesheet" href="/assets/seo-pages.css"/>
+<style>.home-discovery{{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;padding:27px 0 0;font-size:11px;color:#9dbeaa}}.home-discovery a{{display:inline-flex;border:1px solid #22624175;border-radius:30px;padding:8px 13px;color:#b1e0c2;white-space:nowrap}}.home-discovery a:hover{{color:#00e477;border-color:#00e477}}@media(max-width:760px){{.home-discovery{{gap:9px;padding-top:19px}}}}</style>
 </head>''',1)
 # Remove redundant original hero preloads (new preloads added with priority).
 page=re.sub(r'<link as="image" href="assets/hero-seamless-v22\.png" media="\(min-width: 861px\)" rel="preload"/>','',page)
