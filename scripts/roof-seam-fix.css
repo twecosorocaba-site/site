@@ -1,41 +1,15 @@
-/* V21 — Telhado alinhado à fachada em todas as larguras.
-   Antes: scale(1.24) ampliava só o recorte e criava uma ponta torta.
-   Agora: roof-front usa a MESMA projeção do hero-scene, pixel a pixel. */
-#inicio .hero-header-bg,
-#inicio .hero-header {
-  border-bottom: 0 !important;
-  box-shadow: none !important;
-}
-@media (min-width: 861px) {
-  #inicio .roof-front {
-    transform: none !important;
-    rotate: none !important;
-    scale: none !important;
-    transform-origin: center center !important;
-    inset: 0 !important;
-    left: auto !important;
-    right: 0 !important;
-    top: 0 !important;
-    bottom: 0 !important;
-    width: auto !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    object-position: right bottom !important;
-  }
+/* V22: unified rooftop and facade are baked into ONE unchanged-perspective
+   photo. No independent roof mask, no overlay, no scale, no seam at nav height. */
+@media (min-width:861px) {
+  #inicio .hero-header-bg { display:none !important; border:0 !important; box-shadow:none !important; }
+  #inicio .hero-header { background:transparent !important; border:0 !important; box-shadow:none !important; }
   #inicio .hero-scene {
-    transform: none !important;
-    inset: 0 !important;
-    left: auto !important;
-    right: 0 !important;
-    top: 0 !important;
-    bottom: 0 !important;
-    width: auto !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    object-position: right bottom !important;
+    transform:none !important; rotate:none !important; scale:none !important;
+    inset:0 !important; left:auto !important; right:0 !important;
+    top:0 !important; bottom:0 !important;
+    height:100% !important; width:auto !important;
+    min-width:0 !important; max-width:none !important;
+    object-fit:contain !important; object-position:right bottom !important;
   }
 }
-/* No mobile há uma única fotografia, sem recorte sobreposto. */
-@media (max-width: 860px) {
-  #inicio .roof-front {display:none!important;transform:none!important;}
-}
+#inicio .roof-front { display:none !important; }
