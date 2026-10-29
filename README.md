@@ -1,7 +1,5 @@
-# TW&CO Premium — site de produção
+# TW&CO Premium — site oficial
 
-O ZIP original contém as fotografias e a composição aprovadas. O build extrai o ZIP, aplica o refinamento em `patch-site.cjs.gz` e publica o conteúdo gerado em `public/`.
+O pacote original preserva os ativos aprovados. Na compilação, a Vercel extrai o ZIP, aplica a atualização de layout e cria uma nova imagem de fundo da hero **sem elementos de interface impressos**. A fachada, os dois Mercedes e as placas personalizadas são preservados a partir da fotografia aprovada. A navegação, os textos e os botões são HTML.
 
-Ordem: Hero → Especialização para cada detalhe → Atendimento → Explique o seu problema → Avaliações Google → Contato.
-
-A orientação inicial é baseada em categorias, não é diagnóstico clínico/mecânico e encaminha a equipe via WhatsApp. Comentários do Google são cópia verificada em 29/10/2026; atualização automática requer autorização.
+Ordem das seções: hero → especialização para cada detalhe → atendimento → explique seu problema → avaliações → contato.
