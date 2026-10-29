@@ -6,4 +6,5 @@ gunzip -c patch-site.cjs.gz > patch-site.cjs
 TWCO_PUBLIC_DIR=public node patch-site.cjs
 python3 scripts/clean_hero.py public/assets/hero-referencia-exata.png public/assets/hero-clean-v19.png
 TWCO_PUBLIC_DIR=public node scripts/polish.cjs
+cat scripts/roof-seam-fix.css >> public/assets/experience-polish.css
 rm -rf public/api

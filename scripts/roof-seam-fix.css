@@ -1,0 +1,17 @@
+/* TW&CO Premium — seamless roof above navigation.
+   The former 1px header separator crossed the building; remove it,
+   then extend the approved roof photo just beyond the header boundary. */
+@media (min-width: 861px) {
+  #inicio .hero-header-bg {
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  #inicio .hero-header {
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  #inicio .roof-front {
+    transform: scale(1.24) !important;
+    transform-origin: 76% 5.7% !important;
+  }
+}
