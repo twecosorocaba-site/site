@@ -12,9 +12,9 @@ from xml.etree import ElementTree as ET
 ROOT=Path(__file__).resolve().parent.parent
 OUT=ROOT/'public'
 ASSET=OUT/'assets'
-BASE=os.environ.get('TWCO_SITE_URL','https://site-beta-sable-27.vercel.app').rstrip('/')
+BASE=os.environ.get('TWCO_SITE_URL','https://www.tweco.com.br').rstrip('/')
 assert BASE.startswith('https://') and not BASE.endswith('/preview')
-DATE='2026-10-29'
+DATE='2026-10-30'
 PHONE='+55 15 99663-8821'
 WHATSAPP='5515996638821'
 ADDR='Rua Júlio Ribeiro, 876'
