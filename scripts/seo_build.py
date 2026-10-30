@@ -147,9 +147,10 @@ def inner_head(title,desc,path,photo=None):
 <link rel="stylesheet" href="/assets/seo-pages.css"/>
 <link rel="stylesheet" href="/assets/mobile-polish.css" media="(max-width: 860px)"/>
 '''
+FOOTER_CREDIT='<div class="footer-credit" style="padding:14px 16px 10px;text-align:center;font-size:12px;letter-spacing:.02em;color:#aab8b1">Feito por <a href="https://www.consecom.com.br/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Consecom</a></div>'
 def foot():
  services=''.join(f'<a href="{BASE}/servicos/{d["slug"]}/">{escape(d["label"])}</a>' for d in SERVICES)
- return f'''<footer class="inner-footer"><div class="inner-wrap footer-grid"><div><a href="{BASE}/"><img src="/{LOGO}" alt="TW&CO Premium" width="160" height="53"/></a><p>Serviço mecânico especializado com atendimento na Vila Santana, Sorocaba.</p><small>© 2026 TW&CO Premium.</small></div><div><strong>Serviços</strong>{services}</div><div><strong>Contato</strong><a href="{absolute('/contato/')}">{ADDR} — {CITY}</a><a href="{wa_link('Olá! Vim pelo site da TW&CO.')}" target="_blank" rel="noopener noreferrer">{PHONE}</a><a href="{IG}" target="_blank" rel="noopener noreferrer">Instagram</a><a href="{MAP}" target="_blank" rel="noopener noreferrer">Ver no Google Maps ↗</a></div></div></footer>'''
+ return f'''<footer class="inner-footer"><div class="inner-wrap footer-grid"><div><a href="{BASE}/"><img src="/{LOGO}" alt="TW&CO Premium" width="160" height="53"/></a><p>Serviço mecânico especializado com atendimento na Vila Santana, Sorocaba.</p><small>© 2026 TW&CO Premium.</small></div><div><strong>Serviços</strong>{services}</div><div><strong>Contato</strong><a href="{absolute('/contato/')}">{ADDR} — {CITY}</a><a href="{wa_link('Olá! Vim pelo site da TW&CO.')}" target="_blank" rel="noopener noreferrer">{PHONE}</a><a href="{IG}" target="_blank" rel="noopener noreferrer">Instagram</a><a href="{MAP}" target="_blank" rel="noopener noreferrer">Ver no Google Maps ↗</a></div></div>{FOOTER_CREDIT}</footer>'''
 def crumbs(items):
  return '<nav aria-label="Navegação estrutural" class="crumbs">'+ ' / '.join(f'<a href="{absolute(p)}">{escape(n)}</a>' if i<len(items)-1 else '<span aria-current="page">'+escape(n)+'</span>' for i,(n,p) in enumerate(items))+'</nav>'
 def cta(subject):
@@ -224,6 +225,8 @@ section_end=page.rfind('</section>',0,page.index(anchor))
 seo_nav=f'<nav aria-label="Mais informações da TW&CO" class="home-discovery"><span>Conheça nossos serviços em Sorocaba:</span> '+''.join(f'<a href="{absolute("/servicos/"+s["slug"]+"/")}">{escape(s["label"])} ↗</a>' for s in SERVICES)+'</nav>'
 page=page[:section_end]+seo_nav+page[section_end:]
 page=page.replace('</head>','<link rel="stylesheet" href="/assets/mobile-polish.css" media="(max-width: 860px)"/></head>',1)
+assert page.count('</footer>')==1, 'Unexpected home footer layout'
+page=page.replace('</footer>',FOOTER_CREDIT+'</footer>',1)
 home.write_text(page,encoding='utf-8')
 URLS.append({'path':'/','image':HERO,'modified':DATE})
 # Hub
