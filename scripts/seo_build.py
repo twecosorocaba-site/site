@@ -294,7 +294,13 @@ ai.mkdir(exist_ok=True)
 # Documented design resources: existing logo is the favicon (no approximated logo artwork).
 shutil.copyfile(ASSET/'logo-twco.svg',OUT/'favicon.svg')
 (OUT/'site.webmanifest').write_text(json.dumps({'name':'TW&CO Premium — Oficina Mecânica','short_name':'TW&CO','start_url':'/','scope':'/','display':'standalone','background_color':'#031710','theme_color':'#00e477','lang':'pt-BR','icons':[{'src':'/favicon.svg','sizes':'any','type':'image/svg+xml','purpose':'any'}]},ensure_ascii=False,indent=2),encoding='utf-8')
-(OUT/'404.html').write_text(inner_head('Página não encontrada | TW&CO Premium','A página solicitada não foi encontrada.','/404/')+'<meta name="robots" content="noindex,follow"/></head><body>'+nav()+'<main class="error-page"><div class="inner-wrap"><h1>Não encontramos essa página.</h1><p>Você pode voltar ao início ou entrar em contato com a equipe.</p><a class="primary-btn" href="/">Voltar ao site ↗</a></div></main>'+foot()+'</body></html>',encoding='utf-8')
+error_head=inner_head('Página não encontrada | TW&CO Premium','A página solicitada não foi encontrada.','/404/')
+# Erros 404 nao sao paginas canonicas; nao enviar sinais de indexacao contraditorios.
+error_head=error_head.replace('<meta name="robots" content="index,follow,max-image-preview:large"/>','<meta name="robots" content="noindex,follow"/>',1)
+error_head=re.sub(r'<link rel="canonical" href="[^"]*"/>','',error_head,count=1)
+error_head=re.sub(r'<link rel="alternate" hreflang="pt-BR" href="[^"]*"/>','',error_head,count=1)
+error_head=re.sub(r'<meta property="og:url" content="[^"]*"/>','',error_head,count=1)
+(OUT/'404.html').write_text(error_head+'</head><body>'+nav()+'<main class="error-page"><div class="inner-wrap"><h1>Não encontramos essa página.</h1><p>Você pode voltar ao início ou entrar em contato com a equipe.</p><a class="primary-btn" href="/">Voltar ao site ↗</a></div></main>'+foot()+'</body></html>',encoding='utf-8')
 # Sitemaps: sitemap.xml as entrypoint index, pages + image discovery separately.
 ET.register_namespace('','http://www.sitemaps.org/schemas/sitemap/0.9')
 ET.register_namespace('image','http://www.google.com/schemas/sitemap-image/1.1')
