@@ -17,3 +17,5 @@ python3 scripts/seo_build.py
 python3 -m pip install -q --disable-pip-version-check --target /tmp/twco-pillow Pillow==11.3.0
 PYTHONPATH=/tmp/twco-pillow python3 scripts/optimize_hero.py
 rm -rf public/api
+node --test scripts/tracking.test.cjs
+TWCO_PUBLIC_DIR=public node scripts/tracking.cjs
