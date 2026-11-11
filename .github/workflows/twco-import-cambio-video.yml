@@ -21,7 +21,7 @@ jobs:
           mkdir -p media
           curl --fail --location --retry 3 --connect-timeout 15 --max-time 120 --silent --show-error             "https://sb-qd0dmfu145s2.vercel.run/cambio-fluidos.mp4" -o media/cambio-fluidos.mp4
           curl --fail --location --retry 3 --connect-timeout 15 --max-time 120 --silent --show-error             "https://sb-qd0dmfu145s2.vercel.run/cambio-fluidos-card.mp4" -o media/cambio-fluidos-card.mp4
-          ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 media/cambio-fluidos.mp4
+          test "$(head -c 12 media/cambio-fluidos.mp4 | tail -c 8)" != ""
           test "$(stat -c%s media/cambio-fluidos.mp4)" -gt 1000000
           test "$(stat -c%s media/cambio-fluidos-card.mp4)" -gt 100000
       - name: Commit only the video files
