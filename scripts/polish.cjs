@@ -27,4 +27,11 @@ fs.copyFileSync(path.join(scriptDir,'experience-polish.css'),
 fs.copyFileSync(path.join(scriptDir,'experience-polish.js'),
   path.join(publicDir,'assets/experience-polish.js'));
 fs.writeFileSync(htmlPath,html,'utf8');
+// Ajuste isolado: 4,3 s -> 3,2 s entre avaliações do Google.
+const reviewsScriptPath=path.join(publicDir,'assets/site.js');
+const reviewJs=fs.readFileSync(reviewsScriptPath,'utf8');
+const oldInterval='},4300)}';
+if(reviewJs.split(oldInterval).length!==2) throw new Error('Intervalo do carrossel de avaliações inesperado');
+fs.writeFileSync(reviewsScriptPath,reviewJs.replace(oldInterval,'},3200)}'));
+
 console.log('TW&CO Premium V20 — experiência refinada, demais seções intactas.');
