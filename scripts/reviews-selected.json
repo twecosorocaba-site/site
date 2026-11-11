@@ -1,6 +1,6 @@
 {
   "status": "selected_snapshot",
-  "source": "Google Maps — avaliações conforme fotos enviadas em 11/11/2026",
+  "source": "Google Maps — avaliações conforme conteúdo fornecido pelo usuário em 11/11/2026",
   "retrievedAt": "2026-11-11",
   "placeName": "TW&CO - Serviços Mecânicos Premium",
   "googleMapsUrl": "https://maps.app.goo.gl/KH8BSwpBCeTkNb8z7",
@@ -22,15 +22,14 @@
     {
       "author": "Juliana F Leite",
       "rating": 5,
-      "text": "Atendimento top , profissionais excelente e capacitado ... Recomendo muito 👏🙏",
+      "text": "Atendimento top , profissionais excelente e capacitado … Recomendo muito 👏🏻🙏🏼 …",
       "date": null
     },
     {
       "author": "Hamburgueria Artesanal",
       "rating": 5,
-      "text": "Excelente atendimento, muito atenciosos, preço justo e muito profissionais, recomendo…",
-      "date": null,
-      "excerpt": true
+      "text": "Excelente atendimento, muito atenciosos, preço justo e muito profissionais, recomendo muito",
+      "date": null
     },
     {
       "author": "Samantha Menegaz",
@@ -41,7 +40,7 @@
     {
       "author": "Diego Ribeiro",
       "rating": 5,
-      "text": "Profissionais e equipamentos de primeira…",
+      "text": "Profissionais e equipamentos de primeira ...",
       "date": null,
       "excerpt": true
     }
