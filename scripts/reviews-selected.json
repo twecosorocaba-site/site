@@ -1,0 +1,49 @@
+{
+  "status": "selected_snapshot",
+  "source": "Google Maps — avaliações conforme fotos enviadas em 11/11/2026",
+  "retrievedAt": "2026-11-11",
+  "placeName": "TW&CO - Serviços Mecânicos Premium",
+  "googleMapsUrl": "https://maps.app.goo.gl/KH8BSwpBCeTkNb8z7",
+  "rating": 5,
+  "reviewCount": 6,
+  "reviews": [
+    {
+      "author": "Felipe Leandro Da Silva",
+      "rating": 5,
+      "text": "Levei meu Jeep para fazer um revisao completa do carro e ele voltou impecável ! Super recomendo. Pessoal atendeu super bem !",
+      "date": null
+    },
+    {
+      "author": "Bárbara Psicanalista Clínica",
+      "rating": 5,
+      "text": "Atendimento, local, serviço, tudo impecável!",
+      "date": null
+    },
+    {
+      "author": "Juliana F Leite",
+      "rating": 5,
+      "text": "Atendimento top , profissionais excelente e capacitado ... Recomendo muito 👏🙏",
+      "date": null
+    },
+    {
+      "author": "Hamburgueria Artesanal",
+      "rating": 5,
+      "text": "Excelente atendimento, muito atenciosos, preço justo e muito profissionais, recomendo…",
+      "date": null,
+      "excerpt": true
+    },
+    {
+      "author": "Samantha Menegaz",
+      "rating": 5,
+      "text": "Serviço excelente",
+      "date": null
+    },
+    {
+      "author": "Diego Ribeiro",
+      "rating": 5,
+      "text": "Profissionais e equipamentos de primeira…",
+      "date": null,
+      "excerpt": true
+    }
+  ]
+}
