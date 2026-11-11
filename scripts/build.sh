@@ -20,4 +20,3 @@ rm -rf public/api
 node --test scripts/tracking.test.cjs
 TWCO_PUBLIC_DIR=public node scripts/tracking.cjs
 
-TWCO_PUBLIC_DIR=public node scripts/reviews-update.cjs
