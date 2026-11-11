@@ -1,0 +1,15 @@
+/* Escopo restrito ao serviço Câmbio e fluidos */
+.service-card--cambio-video .service-media{position:absolute;inset:0;overflow:hidden}
+.service-card--cambio-video .twco-cambio-preview{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center;opacity:0;transition:opacity .35s ease;pointer-events:none}
+.service-card--cambio-video .twco-cambio-preview.is-playing{opacity:1}
+.service-card--cambio-video .service-media::after{z-index:1;pointer-events:none}
+.service-card--cambio-video .service-details{z-index:2}
+.twco-cambio-feature{min-width:0;display:flex;flex-direction:column;align-items:center;gap:10px}
+.twco-cambio-player{position:relative;width:min(100%,390px);margin-inline:auto;border-radius:14px;overflow:hidden;background:#07130f;border:1px solid rgba(255,255,255,.12)}
+.twco-cambio-player video{display:block;width:100%;aspect-ratio:9/16;height:auto;max-height:660px;object-fit:contain;background:#06130f}
+.twco-cambio-audio-button{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-width:calc(100% - 36px);border:1px solid rgba(255,255,255,.30);border-radius:999px;padding:15px 22px;background:rgba(4,22,14,.92);backdrop-filter:blur(7px);color:#fff;font:inherit;font-size:14px;font-weight:600;white-space:nowrap;cursor:pointer;box-shadow:0 8px 32px rgba(0,0,0,.30)}
+.twco-cambio-audio-button:hover,.twco-cambio-audio-button:focus-visible{border-color:#00e477;background:#0a2c1a;outline:2px solid transparent}
+.twco-cambio-audio-button[hidden]{display:none}
+.twco-cambio-feature figcaption{text-align:center}
+@media (prefers-reduced-motion:reduce){.service-card--cambio-video .twco-cambio-preview{display:none}}
+
