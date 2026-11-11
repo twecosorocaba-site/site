@@ -27,11 +27,45 @@ fs.copyFileSync(path.join(scriptDir,'experience-polish.css'),
 fs.copyFileSync(path.join(scriptDir,'experience-polish.js'),
   path.join(publicDir,'assets/experience-polish.js'));
 fs.writeFileSync(htmlPath,html,'utf8');
-// Ajuste isolado: 4,3 s -> 3,2 s entre avaliações do Google.
+// Movimento contínuo e discreto no carrossel de avaliações.
+// Pausa em qualquer interação; permite arrastar no desktop e deslizar no celular.
 const reviewsScriptPath=path.join(publicDir,'assets/site.js');
-const reviewJs=fs.readFileSync(reviewsScriptPath,'utf8');
-const oldInterval='},4300)}';
-if(reviewJs.split(oldInterval).length!==2) throw new Error('Intervalo do carrossel de avaliações inesperado');
-fs.writeFileSync(reviewsScriptPath,reviewJs.replace(oldInterval,'},3200)}'));
+let reviewJs=fs.readFileSync(reviewsScriptPath,'utf8');
+const originalTimer=/function resetTimer\(\)\{[^\n]*\}/;
+const continuousTimer=`function resetTimer(){if(interval)cancelAnimationFrame(interval);let last=0;let position=viewport?.scrollLeft||0;const pixelsPerSecond=22;
+ if(viewport){viewport.style.scrollSnapType='none';viewport.style.scrollBehavior='auto';viewport.style.cursor='grab';}
+ function tick(now){interval=requestAnimationFrame(tick);if(!last){last=now;return;}
+ const delta=Math.min(64,now-last);last=now;
+ if(paused||document.hidden||isReduced.matches||!viewport||!items.length)return;
+ const card=reviewTrack?.children[0];if(!card)return;
+ const cycle=(card.getBoundingClientRect().width+18)*items.length;
+ if(cycle<=0)return;position+=pixelsPerSecond*delta/1000;
+ if(position>=cycle)position-=cycle;viewport.scrollLeft=position;}
+ interval=requestAnimationFrame(tick);}`;
+if((reviewJs.match(originalTimer)||[]).length!==1)throw new Error('Temporizador original não encontrado');
+reviewJs=reviewJs.replace(originalTimer,continuousTimer);
+const oldInteraction="viewport?.addEventListener('focusout',()=>isHover=false);";
+const newInteraction=`viewport?.addEventListener('focusout',()=>isHover=false);
+let reviewDrag=null;
+function stopReviewDrag(e){if(!reviewDrag||e.pointerId!==reviewDrag.id)return;reviewDrag=null;viewport.style.cursor='grab';}
+viewport?.addEventListener('pointerdown',e=>{
+ paused=true;
+ if(e.pointerType!=='mouse'||e.button!==0||e.target.closest('a,button'))return;
+ reviewDrag={id:e.pointerId,x:e.clientX};
+ viewport.setPointerCapture(e.pointerId);viewport.style.cursor='grabbing';
+});
+viewport?.addEventListener('pointermove',e=>{
+ if(!reviewDrag||reviewDrag.id!==e.pointerId)return;
+ viewport.scrollLeft-=e.clientX-reviewDrag.x;reviewDrag.x=e.clientX;
+});
+viewport?.addEventListener('pointerup',stopReviewDrag);
+viewport?.addEventListener('pointercancel',stopReviewDrag);
+viewport?.addEventListener('touchstart',()=>paused=true,{passive:true});
+viewport?.addEventListener('wheel',()=>paused=true,{passive:true});
+viewport?.addEventListener('keydown',()=>paused=true);
+viewport?.addEventListener('focusin',()=>paused=true);`;
+if(reviewJs.split(oldInteraction).length!==2)throw new Error('Interação original inesperada');
+reviewJs=reviewJs.replace(oldInteraction,newInteraction);
+fs.writeFileSync(reviewsScriptPath,reviewJs);
 
 console.log('TW&CO Premium V20 — experiência refinada, demais seções intactas.');
